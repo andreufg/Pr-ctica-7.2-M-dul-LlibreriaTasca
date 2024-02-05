@@ -1,36 +1,31 @@
 <odoo>
     <data>
-        <!-- explicit list view definition -->
-        <!-- Definimos cómo es la vista explícita de la lista -->
-        <record model="ir.ui.view" id="lista_tareas.list">
-            <field name="name">lista_tareas list</field>
-            <field name="model">lista_tareas.lista_tareas</field>
+        <record model="ir.ui.view" id="llibre_list_view">
+            <field name="name">Llibre List</field>
+            <field name="model">llibre</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="tarea"/>
-                    <field name="prioridad"/>
-                    <field name="urgente"/>
-                    <field name="realizada"/>
+                    <field name="nom"/>
+                    <field name="preu"/>
+                    <field name="exemplars"/>
+                    <field name="data"/>
+                    <field name="segonama"/>
+                    <field name="estat"/>
                 </tree>
             </field>
         </record>
 
-        <!-- actions opening views on models -->
-        <!-- Acciones al abrir las vistas en los modelos -->
-        <!-- Referencia: https://www.odoo.com/documentation/14.0/developer/reference/addons/actions.html -->
-        <record model="ir.actions.act_window" id="lista_tareas.action_window">
-            <field name="name">Listado de tareas pendientes</field>
-            <field name="res_model">lista_tareas.lista_tareas</field>
+        <record model="ir.actions.act_window" id="llibre_action_window">
+            <field name="name">Lista de Libros</field>
+            <field name="res_model">llibre</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- Top menu item -->
-        <menuitem name="Listado de tareas" id="lista_tareas.menu_root"/>
-
-        <!-- menu categories -->
-        <menuitem name="Opciones Lista Tareas" id="lista_tareas.menu_1" parent="lista_tareas.menu_root"/>
-
-        <!-- actions -->
-        <menuitem name="Mostrar lista" id="lista_tareas.menu_1_list" parent="lista_tareas.menu_1" action="lista_tareas.action_window"/>
+        <menuitem name="Lista de Libros" id="llibre_menu_root"/>
+        <menuitem name="Opciones Lista Libros" id="llibre_menu_1" parent="llibre_menu_root"/>
+        <menuitem name="Mostrar Lista" id="llibre_menu_1_list" parent="llibre_menu_1" action="llibre_action_window"/>
     </data>
 </odoo>
+
+
+
